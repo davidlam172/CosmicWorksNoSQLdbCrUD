@@ -53,5 +53,5 @@ jobs:
         with:
           app-name: 'CosmicWorksTest220230929005430'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_6F768A3D006349A4AF0E934EF2464309 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EE99177FA8A3411499A7DF0FD6363212 }}
           package: .

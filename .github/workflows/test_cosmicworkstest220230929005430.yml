@@ -15,10 +15,10 @@ jobs:
     steps:
       - uses: actions/checkout@v2
 
-      - name: Set up .NET Core
+      - name: Setup .NET SDK
         uses: actions/setup-dotnet@v1
         with:
-          dotnet-version: '3.1'
+          dotnet-version: '6.0.0'
           include-prerelease: true
 
       - name: Build with dotnet
@@ -32,6 +32,9 @@ jobs:
         with:
           name: .net-app
           path: ${{env.DOTNET_ROOT}}/myapp
+      - name: Clean Project
+        run: dotnet clean Solution2.sln
+
 
   deploy:
     runs-on: windows-latest

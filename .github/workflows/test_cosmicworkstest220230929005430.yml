@@ -22,10 +22,10 @@ jobs:
           include-prerelease: true
 
       - name: Build with dotnet
-        run: dotnet build --configuration Release -p:SolutionDir=Path/To/Your/Solution2.sln
+        run: dotnet build --configuration Release Solution2.sln
 
       - name: dotnet publish
-        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp -p:SolutionDir=Path/To/Your/Solution2.sln
+        run: dotnet publish -c Release -o ${{env.DOTNET_ROOT}}/myapp Solution2.sln
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v2

@@ -1,0 +1,54 @@
+{
+  "Version": 1,
+  "Hash": "rn/g94dTE/HwURjC0y4yFeU3ePEuSPLTD8/g52nZcNg=",
+  "Source": "CosmicWorksTest2",
+  "BasePath": "_content/CosmicWorksTest2",
+  "Mode": "Default",
+  "ManifestType": "Build",
+  "ReferencedProjectsConfiguration": [],
+  "DiscoveryPatterns": [
+    {
+      "Name": "CosmicWorksTest2\\wwwroot",
+      "Source": "CosmicWorksTest2",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "BasePath": "_content/CosmicWorksTest2",
+      "Pattern": "**"
+    }
+  ],
+  "Assets": [
+    {
+      "Identity": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\favicon.ico",
+      "SourceId": "CosmicWorksTest2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "BasePath": "_content/CosmicWorksTest2",
+      "RelativePath": "favicon.ico",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\favicon.ico"
+    },
+    {
+      "Identity": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\icon.png",
+      "SourceId": "CosmicWorksTest2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "BasePath": "_content/CosmicWorksTest2",
+      "RelativePath": "icon.png",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\icon.png"
+    }
+  ]
+}

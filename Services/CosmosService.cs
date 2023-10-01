@@ -22,7 +22,7 @@ public class CosmosService : ICosmosService
     {
         var queryable = container.GetItemLinqQueryable<Product>();
         using FeedIterator<Product> feed = queryable
-    .Where(p => p.price < 2000m)
+    //.Where(p => p.price < 2000m)
     .OrderByDescending(p => p.price)
     .ToFeedIterator();
         List<Product> results = new();

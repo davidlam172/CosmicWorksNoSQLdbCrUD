@@ -1,0 +1,29 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\icon.png",
+      "PackagePath": "staticwebassets\\icon.png"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.CosmicWorksTest2.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.build.CosmicWorksTest2.props",
+      "PackagePath": "build\\CosmicWorksTest2.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildMultiTargeting.CosmicWorksTest2.props",
+      "PackagePath": "buildMultiTargeting\\CosmicWorksTest2.props"
+    },
+    {
+      "Id": "obj\\Release\\net6.0\\staticwebassets\\msbuild.buildTransitive.CosmicWorksTest2.props",
+      "PackagePath": "buildTransitive\\CosmicWorksTest2.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

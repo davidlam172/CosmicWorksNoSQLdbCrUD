@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="CosmicWorksTest220230929010127" tags="IisApp">
-    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
+  <parameter name="IIS Web Application Name" description="" value="CosmicWorksTest220230929005430" tags="IisApp">
+    <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\dad\\source\\repos\\Solution2\\obj\\Release\\net6\.0\\PubTmp\\Out\\$" />
   </parameter>
 </parameters>

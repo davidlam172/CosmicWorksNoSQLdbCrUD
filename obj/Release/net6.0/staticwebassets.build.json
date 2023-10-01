@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "rn/g94dTE/HwURjC0y4yFeU3ePEuSPLTD8/g52nZcNg=",
+  "Hash": "YnhHWen4tr/kNEtE02JTpeKhxzF2qm45XZn3WXZZ/hY=",
   "Source": "CosmicWorksTest2",
   "BasePath": "_content/CosmicWorksTest2",
   "Mode": "Default",
@@ -10,17 +10,17 @@
     {
       "Name": "CosmicWorksTest2\\wwwroot",
       "Source": "CosmicWorksTest2",
-      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\",
       "BasePath": "_content/CosmicWorksTest2",
       "Pattern": "**"
     }
   ],
   "Assets": [
     {
-      "Identity": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\favicon.ico",
+      "Identity": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\favicon.ico",
       "SourceId": "CosmicWorksTest2",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\",
       "BasePath": "_content/CosmicWorksTest2",
       "RelativePath": "favicon.ico",
       "AssetKind": "All",
@@ -34,10 +34,10 @@
       "OriginalItemSpec": "wwwroot\\favicon.ico"
     },
     {
-      "Identity": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\icon.png",
+      "Identity": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\icon.png",
       "SourceId": "CosmicWorksTest2",
       "SourceType": "Discovered",
-      "ContentRoot": "C:\\Users\\dad\\source\\repos\\CosmicWorksTest2\\wwwroot\\",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\",
       "BasePath": "_content/CosmicWorksTest2",
       "RelativePath": "icon.png",
       "AssetKind": "All",

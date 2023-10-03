@@ -5,10 +5,13 @@
     const int highPrice = 1000;
 }
 
+<!-- Add an input field for live search -->
+<input type="text" id="searchInput" class="form-control" placeholder="Search products" />
+
 <table class="table table-sm table-bordered mt-2">
     <thead>
         <tr>
-            <th scope="col">Legend</th> 
+            <th scope="col">Legend</th>
         </tr>
     </thead>
     <tbody>
@@ -42,7 +45,7 @@
         </tr>
     </thead>
     <tbody class="table-group-divider">
-        @foreach(Product item in Model.Products ?? Enumerable.Empty<Product>())
+        @foreach (Product item in Model.Products ?? Enumerable.Empty<Product>())
         {
             string rowHighlight = item.price switch
             {
@@ -76,3 +79,6 @@
         }
     </tbody>
 </table>
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="~/js/live-search.js"></script>

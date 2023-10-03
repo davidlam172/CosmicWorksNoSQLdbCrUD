@@ -49,9 +49,21 @@ SELECT
     p.price,
     p.tags
 FROM products p
-JOIN t IN p.tags
-WHERE t.name = @tagFilter
 """;
+        //        string sql = """
+        //SELECT
+        //    p.id,
+        //    p.categoryId,
+        //    p.categoryName,
+        //    p.sku,
+        //    p.name,
+        //    p.description,
+        //    p.price,
+        //    p.tags
+        //FROM products p
+        //JOIN t IN p.tags
+        //WHERE t.name = @tagFilter
+        //""";
         var query = new QueryDefinition(
         query: sql
     )

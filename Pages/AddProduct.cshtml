@@ -1,0 +1,29 @@
+﻿@* @page
+@model AddProductModel
+
+<h2>Add a New Product</h2>
+
+<form method="post">
+    <div class="form-group">
+        <label for="NewProduct.CategoryId">Category ID</label>
+        <input asp-for="NewProduct.CategoryId" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewProduct.Name">Product Name</label>
+        <input asp-for="NewProduct.Name" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewProduct.Sku">SKU</label>
+        <input asp-for="NewProduct.Sku" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewProduct.Description">Description</label>
+        <input asp-for="NewProduct.Description" class="form-control" />
+    </div>
+    <div class="form-group">
+        <label for="NewProduct.Price">Price</label>
+        <input asp-for="NewProduct.Price" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary">Add Product</button>
+</form>
+ *@

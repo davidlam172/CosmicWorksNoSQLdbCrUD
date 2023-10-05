@@ -1,29 +1,33 @@
-﻿@* @page
+﻿@page
 @model AddProductModel
 
-<h2>Add a New Product</h2>
-
 <form method="post">
-    <div class="form-group">
-        <label for="NewProduct.CategoryId">Category ID</label>
-        <input asp-for="NewProduct.CategoryId" class="form-control" />
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" asp-for="Product.name" />
     </div>
-    <div class="form-group">
-        <label for="NewProduct.Name">Product Name</label>
-        <input asp-for="NewProduct.Name" class="form-control" />
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" asp-for="Product.description" />
     </div>
-    <div class="form-group">
-        <label for="NewProduct.Sku">SKU</label>
-        <input asp-for="NewProduct.Sku" class="form-control" />
+    <div>
+        <label for="categoryId">Category ID:</label>
+        <input type="text" id="categoryId" asp-for="Product.categoryId" />
     </div>
-    <div class="form-group">
-        <label for="NewProduct.Description">Description</label>
-        <input asp-for="NewProduct.Description" class="form-control" />
+    <div>
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" asp-for="Product.categoryName" />
     </div>
-    <div class="form-group">
-        <label for="NewProduct.Price">Price</label>
-        <input asp-for="NewProduct.Price" class="form-control" />
+    <div>
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" asp-for="Product.sku" />
     </div>
-    <button type="submit" class="btn btn-primary">Add Product</button>
+    <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" asp-for="Product.price" />
+    </div>
+
+    <div>
+        <button type="submit">Add Product</button>
+    </div>
 </form>
- *@

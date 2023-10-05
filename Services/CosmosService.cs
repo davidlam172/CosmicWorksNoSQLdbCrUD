@@ -84,4 +84,43 @@ FROM products p
 
         return results;
     }
+    public async Task AddProductAsync(Product product)
+    {
+        try
+        {
+            // Generate a unique identifier for the product
+            string productId = Guid.NewGuid().ToString();
+
+            // Create a new instance of Product with the 'id' property set
+            var newProduct = new Product(
+            id: productId,
+            categoryId: product.categoryId,
+            categoryName: product.categoryName,
+            sku: product.sku,
+            name: product.name,
+            description: product.description,
+            price: product.price
+            //id: "TESTID",
+            //categoryId: "TEST",
+            //categoryName: "TEST",
+            //sku: "TEST",
+            //name: "TEST",
+            //description: "TEST",
+            //price: 0
+            );
+
+        // Use the correct partition key value
+        string partitionKey = newProduct.categoryId;
+
+        // Add the new product to the CosmosDB container
+        ItemResponse<Product> response = await container.CreateItemAsync(newProduct, new PartitionKey(partitionKey));
+    }
+    catch (Exception ex)
+    {
+        // Handle exceptions, log errors, or perform error handling as needed
+        Console.WriteLine($"Error adding product: {ex.Message}");
+        throw;
+    }
+    }
+
 }

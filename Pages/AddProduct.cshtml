@@ -1,36 +1,38 @@
 ﻿@page
 @model AddProductModel
-
+<style>
+    td {
+        padding-right: 20px;
+    }
+</style>
 <form method="post">
-    <div>
-        <label for="name">Name:</label>
-        <input type="text" id="name" asp-for="Product.name" />
-    </div>
-    <div>
-        <label for="categoryId">Category ID:</label>
-        <input type="text" id="categoryId" asp-for="Product.categoryId" />
-    </div>
-    <div>
-        <label for="description">Description:</label>
-        <input type="text" id="description" asp-for="Product.description" />
-    </div>
-    <div>
-        <label for="categoryId">Category ID:</label>
-        <input type="text" id="categoryId" asp-for="Product.categoryId" />
-    </div>
-    <div>
-        <label for="categoryName">Category Name:</label>
-        <input type="text" id="categoryName" asp-for="Product.categoryName" />
-    </div>
-    <div>
-        <label for="sku">SKU:</label>
-        <input type="text" id="sku" asp-for="Product.sku" />
-    </div>
-    <div>
-        <label for="price">Price:</label>
-        <input type="number" id="price" asp-for="Product.price" />
-    </div>
-
+    <table>
+        <tr>
+            <td><label for="name">Name:</label></td>
+            <td><input type="text" id="name" asp-for="Product.name" /></td>
+        </tr>
+        <tr>
+            <td><label for="categoryId">Category ID:</label></td>
+            <td><input type="text" id="categoryId" asp-for="Product.categoryId" /></td>
+        </tr>
+        <tr>
+            <td><label for="description">Description:</label></td>
+            <td><input type="text" id="description" asp-for="Product.description" /></td>
+        </tr>
+        <tr>
+            <td><label for="sku">SKU:</label></td>
+            <td><input type="text" id="sku" asp-for="Product.sku" /></td>
+        </tr>
+        <tr>
+            <td><label for="categoryName">Category Name:</label></td>
+            <td><input type="text" id="categoryName" asp-for="Product.categoryName" /></td>
+        </tr>
+        <tr>
+            <td><label for="price">Price:</label></td>
+            <td><input type="number" id="price" asp-for="Product.price" /></td>
+        </tr>
+    </table>
+    <br />
     <div>
         <button type="submit">Add Product</button>
     </div>

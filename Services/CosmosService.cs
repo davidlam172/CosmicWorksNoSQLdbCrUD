@@ -112,17 +112,15 @@ FROM products p
         }
     }
 
-    public async Task EditProductAsync(Product updatedProduct)
+    public async Task EditProductAsync(Product updatedProduct, String NewCategoryId)
     {
         try
         {
-            // Retrieve the existing product from Cosmos DB based on its id
             ItemResponse<Product> existingProductResponse = await container.ReadItemAsync<Product>(
                 partitionKey: new PartitionKey(updatedProduct.categoryId),
                 id: updatedProduct.id
             );
 
-            // Ensure the existing product was found
             if (existingProductResponse.StatusCode == System.Net.HttpStatusCode.OK)
             {
                 // Retrieve the existing product

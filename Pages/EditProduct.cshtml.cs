@@ -17,14 +17,18 @@ public class EditProductModel : PageModel
     [BindProperty]
     public Product Product { get; set; }
 
+    [BindProperty]
+    public string NewCategoryId { get; set; } // New category ID
     public void OnGet()
     {
-        // This method handles the initial GET request
+        // handles the initial GET request
     }
 
+    public string ExistingCategoryId { get; set; }
     public async Task<IActionResult> OnPostAsync()
     {
-        await _cosmosService.EditProductAsync(Product);
+
+        await _cosmosService.EditProductAsync(Product, NewCategoryId);
         return RedirectToPage("/Products");
     }
 }

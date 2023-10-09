@@ -5,11 +5,11 @@ using CosmicWorksTest2.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class AddProductModel : PageModel
+public class EditProductModel : PageModel
 {
     private readonly ICosmosService _cosmosService;
 
-    public AddProductModel(ICosmosService cosmosService)
+    public EditProductModel(ICosmosService cosmosService)
     {
         _cosmosService = cosmosService;
     }
@@ -19,11 +19,12 @@ public class AddProductModel : PageModel
 
     public void OnGet()
     {
+        // This method handles the initial GET request
     }
 
     public async Task<IActionResult> OnPostAsync()
     {
-            await _cosmosService.AddProductAsync(Product);
-            return RedirectToPage("/Products");
+        await _cosmosService.EditProductAsync(Product);
+        return RedirectToPage("/Products");
     }
 }

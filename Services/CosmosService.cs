@@ -1,6 +1,7 @@
 using CosmicWorksTest2.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
+using System.Reflection.Metadata;
 
 namespace CosmicWorksTest2.Services;
 
@@ -88,10 +89,8 @@ FROM products p
     {
         try
         {
-            // Generate a unique identifier for the product
             string productId = Guid.NewGuid().ToString();
 
-            // Create a new instance of Product with the 'id' property set
             var newProduct = new Product(
             id: productId,
             categoryId: product.categoryId,
@@ -100,27 +99,71 @@ FROM products p
             name: product.name,
             description: product.description,
             price: product.price
-            //id: "TESTID",
-            //categoryId: "TEST",
-            //categoryName: "TEST",
-            //sku: "TEST",
-            //name: "TEST",
-            //description: "TEST",
-            //price: 0
             );
 
-        // Use the correct partition key value
-        string partitionKey = newProduct.categoryId;
+            string partitionKey = newProduct.categoryId;
 
-        // Add the new product to the CosmosDB container
-        ItemResponse<Product> response = await container.CreateItemAsync(newProduct, new PartitionKey(partitionKey));
+            ItemResponse<Product> response = await container.CreateItemAsync(newProduct, new PartitionKey(partitionKey));
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error adding product: {ex.Message}");
+            throw;
+        }
     }
-    catch (Exception ex)
+
+    public async Task EditProductAsync(Product updatedProduct)
     {
-        // Handle exceptions, log errors, or perform error handling as needed
-        Console.WriteLine($"Error adding product: {ex.Message}");
-        throw;
+        try
+        {
+            // Retrieve the existing product from Cosmos DB based on its id
+            ItemResponse<Product> existingProductResponse = await container.ReadItemAsync<Product>(
+                partitionKey: new PartitionKey(updatedProduct.categoryId),
+                id: updatedProduct.id
+            );
+
+            // Ensure the existing product was found
+            if (existingProductResponse.StatusCode == System.Net.HttpStatusCode.OK)
+            {
+                // Retrieve the existing product
+                Product existingProduct = existingProductResponse.Resource;
+
+                // Create a new instance of Product with updated values
+                Product updated = new Product(
+                    id: existingProduct.id,
+                    categoryId: existingProduct.categoryId,
+                    categoryName: updatedProduct.categoryName, // Update the category name
+                    sku: updatedProduct.sku,                 // Update the SKU
+                    name: updatedProduct.name,               // Update the name
+                    description: updatedProduct.description, // Update the description
+                    price: updatedProduct.price              // Update the price
+                );
+
+                // Replace the existing product with the updated product
+                ItemResponse<Product> response = await container.ReplaceItemAsync(
+                    partitionKey: new PartitionKey(existingProduct.categoryId),
+                    id: existingProduct.id,
+                    item: updated
+                );
+
+                // Handle any further logic, error checking, or logging as needed.
+            }
+            else
+            {
+                // Handle the case where the product with the specified id was not found.
+                Console.WriteLine("Product not found.");
+            }
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error editing product: {ex.Message}");
+            throw;
+        }
     }
-    }
+
+
+
+
+
 
 }

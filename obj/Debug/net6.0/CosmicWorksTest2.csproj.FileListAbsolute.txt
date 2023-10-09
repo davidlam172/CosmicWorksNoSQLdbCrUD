@@ -114,3 +114,5 @@ C:\Users\dad\source\repos\Solution2\obj\Debug\net6.0\refint\CosmicWorksTest2.dll
 C:\Users\dad\source\repos\Solution2\obj\Debug\net6.0\CosmicWorksTest2.pdb
 C:\Users\dad\source\repos\Solution2\obj\Debug\net6.0\CosmicWorksTest2.genruntimeconfig.cache
 C:\Users\dad\source\repos\Solution2\obj\Debug\net6.0\ref\CosmicWorksTest2.dll
+C:\Users\dad\source\repos\Solution2\bin\Debug\net6.0\package-lock.json
+C:\Users\dad\source\repos\Solution2\bin\Debug\net6.0\package.json

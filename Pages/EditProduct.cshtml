@@ -1,0 +1,38 @@
+﻿@page
+@model EditProductModel
+
+<form method="post">
+    <div>
+        <label for="name">Existing Product ID:</label>
+        <input type="text" id="name" asp-for="Product.id" />
+    </div>
+    <div>
+        <label for="name">Name:</label>
+        <input type="text" id="name" asp-for="Product.name" />
+    </div>
+    <div>
+        <label for="description">Description:</label>
+        <input type="text" id="description" asp-for="Product.description" />
+    </div>
+    <div>
+        <label for="categoryId">Category ID:</label>
+        <input type="text" id="categoryId" asp-for="Product.categoryId" />
+    </div>
+    <div>
+        <label for="categoryName">Category Name:</label>
+        <input type="text" id="categoryName" asp-for="Product.categoryName" />
+    </div>
+    <div>
+        <label for="sku">SKU:</label>
+        <input type="text" id="sku" asp-for="Product.sku" />
+    </div>
+    <div>
+        <label for="price">Price:</label>
+        <input type="number" id="price" asp-for="Product.price" />
+    </div>
+
+    <div>
+        <button type="submit">Edit Product</button>
+    </div>
+</form>
+

@@ -13,6 +13,12 @@
         </tr>
     </table>
     <br />
+    @if (!Model.ProductExists)
+    {
+        <div class="alert alert-danger" role="alert">
+            Product not found.
+        </div>
+    }
     <div>
         <button type="submit" class="delete-button">Delete Product</button>
     </div>

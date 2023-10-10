@@ -12,8 +12,8 @@ public class DeleteProductModel : PageModel
     public DeleteProductModel(ICosmosService cosmosService)
     {
         _cosmosService = cosmosService;
+        ProductExists = true;
     }
-
 
     [BindProperty]
     public string CategoryID { get; set; }
@@ -22,10 +22,19 @@ public class DeleteProductModel : PageModel
     public void OnGet()
     {
     }
+    public bool ProductExists { get; set; }
 
     public async Task<IActionResult> OnPostAsync()
     {
-        await _cosmosService.DeleteProductAsync(ProductID, CategoryID);
-        return RedirectToPage("/Products");
+        ProductExists = await _cosmosService.CheckProductExistsAsync(ProductID, CategoryID);
+        if (ProductExists)
+        {
+            await _cosmosService.DeleteProductAsync(ProductID, CategoryID);
+            return RedirectToPage("/Products");
+        }
+        else
+        {
+            return Page();
+        }
     }
 }

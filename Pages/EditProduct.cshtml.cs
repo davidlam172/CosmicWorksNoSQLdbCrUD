@@ -12,6 +12,7 @@ public class EditProductModel : PageModel
     public EditProductModel(ICosmosService cosmosService)
     {
         _cosmosService = cosmosService;
+        ProductExists = true;
     }
 
     [BindProperty]
@@ -24,10 +25,18 @@ public class EditProductModel : PageModel
         // handles the initial GET request
     }
 
-    public string ExistingCategoryId { get; set; }
+    public bool ProductExists { get; set; }
     public async Task<IActionResult> OnPostAsync()
     {
-        await _cosmosService.EditProductAsync(Product, NewCategoryId);
-        return RedirectToPage("/Products");
+        ProductExists = await _cosmosService.CheckProductExistsAsync(Product.id, Product.categoryId);
+        if (ProductExists)
+        {
+            await _cosmosService.EditProductAsync(Product, NewCategoryId);
+            return RedirectToPage("/Products");
+        }
+        else
+        {
+            return Page();
+        }
     }
 }

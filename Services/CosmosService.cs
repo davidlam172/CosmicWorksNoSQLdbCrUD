@@ -170,6 +170,27 @@ FROM products p
         }
     }
 
+    public async Task<bool> CheckProductExistsAsync(string productId, string categoryId)
+    {
+        try
+        {
+            ItemResponse<Product> existingProductResponse = await container.ReadItemAsync<Product>(
+                partitionKey: new PartitionKey(categoryId),
+                id: productId.Replace(" ", "")
+            );
+
+            return existingProductResponse.StatusCode == System.Net.HttpStatusCode.OK;
+        }
+        catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            return false;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error checking product existence: {ex.Message}");
+            throw;
+        }
+    }
 
 
 

@@ -123,32 +123,27 @@ FROM products p
 
             if (existingProductResponse.StatusCode == System.Net.HttpStatusCode.OK)
             {
-                // Retrieve the existing product
                 Product existingProduct = existingProductResponse.Resource;
 
-                // Create a new instance of Product with updated values
                 Product updated = new Product(
                     id: existingProduct.id,
                     categoryId: existingProduct.categoryId,
-                    categoryName: updatedProduct.categoryName, // Update the category name
-                    sku: updatedProduct.sku,                 // Update the SKU
-                    name: updatedProduct.name,               // Update the name
-                    description: updatedProduct.description, // Update the description
-                    price: updatedProduct.price              // Update the price
+                    categoryName: updatedProduct.categoryName ?? existingProduct.categoryName,
+                    sku: updatedProduct.sku ?? existingProduct.sku,
+                    name: updatedProduct.name ?? existingProduct.name,
+                    description: updatedProduct.description ?? existingProduct.description,
+                    price: updatedProduct.price != -1 ? updatedProduct.price : existingProduct.price
                 );
 
-                // Replace the existing product with the updated product
+
                 ItemResponse<Product> response = await container.ReplaceItemAsync(
                     partitionKey: new PartitionKey(existingProduct.categoryId),
                     id: existingProduct.id,
                     item: updated
                 );
-
-                // Handle any further logic, error checking, or logging as needed.
             }
             else
             {
-                // Handle the case where the product with the specified id was not found.
                 Console.WriteLine("Product not found.");
             }
         }

@@ -27,7 +27,6 @@ public class EditProductModel : PageModel
     public string ExistingCategoryId { get; set; }
     public async Task<IActionResult> OnPostAsync()
     {
-
         await _cosmosService.EditProductAsync(Product, NewCategoryId);
         return RedirectToPage("/Products");
     }

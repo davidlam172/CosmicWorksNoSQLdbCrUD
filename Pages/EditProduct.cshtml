@@ -1,52 +1,48 @@
 ﻿@page
 @model EditProductModel
-<style>
-    td {
-        padding-right: 20px;
-    }
-</style>
+<br />
 <form method="post">
 <table>
     
     <tr>
-        <td><label for="name">Existing Product ID:</label></td>
-        <td><input type="text" id="name" asp-for="Product.id" /></td>
+        <td class="tdSpace"><label for="name">Existing Product ID:</label></td>
+        <td class="tdSpace"><input type="text" id="name" asp-for="Product.id" /></td>
     </tr>
     <tr>
-        <td><label for="categoryId">Existing Category ID:</label></td>
-        <td><input type="text" id="categoryId" asp-for="Product.categoryId" /></td>
+        <td class="tdSpace"><label for="categoryId">Existing Category ID:</label></td>
+        <td class="tdSpace"><input type="text" id="categoryId" asp-for="Product.categoryId" /></td>
     </tr>
     <tr>
         <td colspan="2"><hr /></td>
     </tr>
     <tr>
-        <td><label for="name">Name:</label></td>
-        <td><input type="text" id="name" asp-for="Product.name" /></td>
+        <td class="tdSpace"><label for="name">Name:</label></td>
+        <td class="tdSpace"><input type="text" id="name" asp-for="Product.name" /></td>
     </tr>
     <tr>
-        <td><label for="description">Description:</label></td>
-        <td><input type="text" id="description" asp-for="Product.description" /></td>
+        <td class="tdSpace"><label for="description">Description:</label></td>
+        <td class="tdSpace"><input type="text" id="description" asp-for="Product.description" /></td>
     </tr>
     <tr>
-        <td><label for="NewCategoryId">New Category ID:</label></td>
-        <td><input type="text" id="NewCategoryId" asp-for="NewCategoryId" /></td>
+        <td class="tdSpace"><label for="NewCategoryId">New Category ID:</label></td>
+        <td class="tdSpace"><input type="text" id="NewCategoryId" asp-for="NewCategoryId" /></td>
     </tr>
     <tr>
-        <td><label for="categoryName">Category Name:</label></td>
-        <td><input type="text" id="categoryName" asp-for="Product.categoryName" /></td>
+        <td class="tdSpace"><label for="categoryName">Category Name:</label></td>
+        <td class="tdSpace"><input type="text" id="categoryName" asp-for="Product.categoryName" /></td>
     </tr>
     <tr>
-        <td><label for="sku">SKU:</label></td>
-        <td><input type="text" id="sku" asp-for="Product.sku" /></td>
+        <td class="tdSpace"><label for="sku">SKU:</label></td>
+        <td class="tdSpace"><input type="text" id="sku" asp-for="Product.sku" /></td>
     </tr>
     <tr>
-        <td><label for="price">Price:</label></td>
-        <td><input type="number" id="price" asp-for="Product.price" /></td>
+        <td class="tdSpace"><label for="price">Price:</label></td>
+        <td class="tdSpace"><input type="number" id="price" asp-for="Product.price" /></td>
     </tr>
    
 </table>
 <br />
 <div>
-    <button type="submit">Edit Product</button>
+    <button type="submit" class="edit-button">Edit Product</button>
 </div>
 </form>

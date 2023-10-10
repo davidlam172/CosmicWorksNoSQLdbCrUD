@@ -158,7 +158,22 @@ FROM products p
             throw;
         }
     }
-
+    public async Task DeleteProductAsync(string ProductID, string CategoryID)
+    {
+        try
+        {
+            await container.DeleteItemAsync<Product>(ProductID, new PartitionKey(CategoryID));
+        }
+        catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            Console.WriteLine("Item not found.");
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error deleting item: {ex.Message}");
+            throw;
+        }
+    }
 
 
 

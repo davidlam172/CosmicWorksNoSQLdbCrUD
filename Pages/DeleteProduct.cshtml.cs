@@ -5,30 +5,27 @@ using CosmicWorksTest2.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
-public class EditProductModel : PageModel
+public class DeleteProductModel : PageModel
 {
     private readonly ICosmosService _cosmosService;
 
-    public EditProductModel(ICosmosService cosmosService)
+    public DeleteProductModel(ICosmosService cosmosService)
     {
         _cosmosService = cosmosService;
     }
 
-    [BindProperty]
-    public Product Product { get; set; }
 
     [BindProperty]
-    public string NewCategoryId { get; set; }
+    public string CategoryID { get; set; }
+    [BindProperty]
+    public string ProductID { get; set; }
     public void OnGet()
     {
-        // handles the initial GET request
     }
 
-    public string ExistingCategoryId { get; set; }
     public async Task<IActionResult> OnPostAsync()
     {
-
-        await _cosmosService.EditProductAsync(Product, NewCategoryId);
+        await _cosmosService.DeleteProductAsync(ProductID, CategoryID);
         return RedirectToPage("/Products");
     }
 }

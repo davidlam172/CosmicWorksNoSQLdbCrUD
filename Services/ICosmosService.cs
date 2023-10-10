@@ -5,6 +5,7 @@ namespace CosmicWorksTest2.Services;
 public interface ICosmosService
 {
     Task AddProductAsync(Product product);
+    Task DeleteProductAsync(string productID, string categoryID);
     Task EditProductAsync(Product product, String NewCategoryId);
     public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
     {

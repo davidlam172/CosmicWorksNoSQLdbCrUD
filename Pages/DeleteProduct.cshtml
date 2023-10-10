@@ -1,0 +1,23 @@
+﻿@page
+@model DeleteProductModel
+<style>
+    td {
+        padding-right: 20px;
+    }
+</style>
+<form method="post">
+    <table>
+        <tr>
+            <td><label for="name">ID:</label></td>
+            <td><input type="text" id="ProductID" asp-for="ProductID" /></td>
+        </tr>
+        <tr>
+            <td><label for="categoryId">Category ID:</label></td>
+            <td><input type="text" id="CategoryID" asp-for="CategoryID" /></td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        <button type="submit">Delete Product</button>
+    </div>
+</form>

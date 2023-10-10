@@ -5,8 +5,9 @@
         padding-right: 20px;
     }
 </style>
+<form method="post">
 <table>
-    <form method="post">
+    
     <tr>
         <td><label for="name">Existing Product ID:</label></td>
         <td><input type="text" id="name" asp-for="Product.id" /></td>
@@ -42,9 +43,10 @@
         <td><label for="price">Price:</label></td>
         <td><input type="number" id="price" asp-for="Product.price" /></td>
     </tr>
-    </form>
+   
 </table>
 <br />
 <div>
     <button type="submit">Edit Product</button>
 </div>
+</form>

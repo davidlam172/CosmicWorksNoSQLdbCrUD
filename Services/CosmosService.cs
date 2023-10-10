@@ -118,7 +118,7 @@ FROM products p
         {
             ItemResponse<Product> existingProductResponse = await container.ReadItemAsync<Product>(
                 partitionKey: new PartitionKey(updatedProduct.categoryId),
-                id: updatedProduct.id
+                id: updatedProduct.id.Replace(" ", "")
             );
 
             if (existingProductResponse.StatusCode == System.Net.HttpStatusCode.OK)
@@ -162,7 +162,7 @@ FROM products p
     {
         try
         {
-            await container.DeleteItemAsync<Product>(ProductID, new PartitionKey(CategoryID));
+            await container.DeleteItemAsync<Product>(ProductID.Replace(" ", ""), new PartitionKey(CategoryID));
         }
         catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
         {

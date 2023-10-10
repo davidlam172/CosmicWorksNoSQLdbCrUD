@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "naGds5fqfdamlAenFBuGds3V+INPU/Sw//dCjUT7jEE=",
+  "Hash": "xnv1Q6qJOTd0N1CnYJwKDuMy6X23qg/2GKNwizNnOAw=",
   "Source": "CosmicWorksTest2",
   "BasePath": "_content/CosmicWorksTest2",
   "Mode": "Default",
@@ -83,6 +83,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\js\\live-search.js"
+    },
+    {
+      "Identity": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\js\\validateForm.js",
+      "SourceId": "CosmicWorksTest2",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\dad\\source\\repos\\Solution2\\wwwroot\\",
+      "BasePath": "_content/CosmicWorksTest2",
+      "RelativePath": "js/validateForm.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\validateForm.js"
     }
   ]
 }

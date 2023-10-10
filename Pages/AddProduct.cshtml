@@ -1,32 +1,31 @@
 ﻿@page
 @model AddProductModel
 <form method="post">
-    <!--<div class="container pb-2">-->
     <br />
     <table>
         <tr>
             <td class="tdSpace"><label for="name">Name:</label></td>
-            <td class="tdSpace"><input type="text" id="name" asp-for="Product.name" /></td>
+            <td class="tdSpace"><input type="text" id="name" asp-for="Product.name" required /></td>
         </tr>
         <tr>
             <td class="tdSpace"><label for="categoryId">Category ID:</label></td>
-            <td class="tdSpace"><input type="text" id="categoryId" asp-for="Product.categoryId" /></td>
+            <td class="tdSpace"><input type="text" id="categoryId" asp-for="Product.categoryId" required /></td>
         </tr>
         <tr>
             <td class="tdSpace"><label for="description">Description:</label></td>
-            <td class="tdSpace"><input type="text" id="description" asp-for="Product.description" /></td>
+            <td class="tdSpace"><input type="text" id="description" asp-for="Product.description" required /></td>
         </tr>
         <tr>
             <td class="tdSpace"><label for="sku">SKU:</label></td>
-            <td class="tdSpace"><input type="text" id="sku" asp-for="Product.sku" /></td>
+            <td class="tdSpace"><input type="text" id="sku" asp-for="Product.sku" required /></td>
         </tr>
         <tr>
             <td class="tdSpace"><label for="categoryName">Category Name:</label></td>
-            <td class="tdSpace"><input type="text" id="categoryName" asp-for="Product.categoryName" /></td>
+            <td class="tdSpace"><input type="text" id="categoryName" asp-for="Product.categoryName" required /></td>
         </tr>
         <tr>
             <td class="tdSpace"><label for="price">Price:</label></td>
-            <td class="tdSpace"><input type="number" id="price" asp-for="Product.price" /></td>
+            <td class="tdSpace"><input type="number" id="price" asp-for="Product.price" required /></td>
         </tr>
     </table>
     <br />
@@ -34,4 +33,5 @@
         <button type="submit" class="add-button">Add Product</button>
     </div>
 </form>
+
 <!--</div>-->

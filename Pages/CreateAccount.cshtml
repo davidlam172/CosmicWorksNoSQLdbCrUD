@@ -1,0 +1,19 @@
+﻿@page
+@model CreateAccountModel
+
+<form method="post">
+    <table>
+        <tr>
+            <td class="tdSpace"><label for="username">Username:</label></td>
+            <td class="tdSpace"><input type="text" id="username" asp-for="CosmosUser.username" required /></td>
+        </tr>
+        <tr>
+            <td class="tdSpace"><label for="password">Password:</label></td>
+            <td class="tdSpace"><input type="text" id="password" asp-for="CosmosUser.password" required /></td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        <button type="submit" class="add-button">Create Account</button>
+    </div>
+</form>

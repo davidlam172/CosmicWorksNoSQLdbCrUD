@@ -4,5 +4,7 @@
     <NameOfLastUsedPublishProfile>C:\Users\dad\source\repos\Solution2\Properties\PublishProfiles\CosmicWorksTest220230929010127 - Web Deploy1.pubxml</NameOfLastUsedPublishProfile>
     <RazorPage_SelectedScaffolderID>RazorPageScaffolder</RazorPage_SelectedScaffolderID>
     <RazorPage_SelectedScaffolderCategoryPath>root/Common/RazorPage</RazorPage_SelectedScaffolderCategoryPath>
+    <Controller_SelectedScaffolderID>MvcControllerEmptyScaffolder</Controller_SelectedScaffolderID>
+    <Controller_SelectedScaffolderCategoryPath>root/Common/MVC/Controller</Controller_SelectedScaffolderCategoryPath>
   </PropertyGroup>
 </Project>

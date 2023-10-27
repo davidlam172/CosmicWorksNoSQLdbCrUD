@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "HRqoY5wTBXzRk9MMXgjMmaj7CUHBcqs5la2WefvveBKvU2z9fsMF4CvpCxH64fEEnH8f4T2LVzbyVt3scZQ16w==",
+  "dgSpecHash": "efDFiQ96yIwIK9j0mbt6dnhEkPlc8x993mblxTv5pjhSvdfXnKZ0pzZV91YsYGOhRNuTbkVHNG0mxE+nZ44Gmw==",
   "success": true,
   "projectFilePath": "C:\\Users\\dad\\source\\repos\\Solution2\\CosmicWorksTest2.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\dad\\.nuget\\packages\\azure.core\\1.19.0\\azure.core.1.19.0.nupkg.sha512",
+    "C:\\Users\\dad\\.nuget\\packages\\bcrypt.net-next\\4.0.3\\bcrypt.net-next.4.0.3.nupkg.sha512",
     "C:\\Users\\dad\\.nuget\\packages\\microsoft.azure.cosmos\\3.35.4\\microsoft.azure.cosmos.3.35.4.nupkg.sha512",
     "C:\\Users\\dad\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\1.0.0\\microsoft.bcl.asyncinterfaces.1.0.0.nupkg.sha512",
     "C:\\Users\\dad\\.nuget\\packages\\microsoft.bcl.hashcode\\1.1.0\\microsoft.bcl.hashcode.1.1.0.nupkg.sha512",

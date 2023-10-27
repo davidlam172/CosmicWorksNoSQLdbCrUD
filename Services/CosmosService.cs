@@ -2,6 +2,7 @@ using CosmicWorksTest2.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
 using System.Reflection.Metadata;
+using BCrypt.Net;
 
 namespace CosmicWorksTest2.Services;
 
@@ -18,6 +19,10 @@ public class CosmosService : ICosmosService
     private Container container
     {
         get => _client.GetDatabase("cosmicworks").GetContainer("products");
+    }
+    private Container usercontainer
+    {
+        get => _client.GetDatabase("dbaccountname").GetContainer("users");
     }
     public async Task<IEnumerable<Product>> RetrieveAllProductsAsync()
     {
@@ -170,6 +175,25 @@ FROM products p
         }
     }
 
+    public async Task<bool> CreateAccount(CosmosUser user)
+    {
+        string salt = BCrypt.Net.BCrypt.GenerateSalt();
+        string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.password, salt);
+        SaveUserDataToCosmos(user.username, hashedPassword, salt);
+        return true;
+
+    }
+    private void SaveUserDataToCosmos(string username, string hashedPassword, string salt)
+    {
+        ItemResponse<CosmosUser> response = usercontainer.CreateItemAsync(new CosmosUser
+        {
+            id = Guid.NewGuid().ToString(),
+            username = username,
+            password = hashedPassword,
+            salt = salt,
+        }).Result;
+    }
+
     public async Task<bool> CheckProductExistsAsync(string productId, string categoryId)
     {
         try
@@ -191,8 +215,4 @@ FROM products p
             throw;
         }
     }
-
-
-
-
 }

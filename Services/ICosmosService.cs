@@ -6,6 +6,7 @@ public interface ICosmosService
 {
     Task AddProductAsync(Product product);
     Task<bool> CheckProductExistsAsync(string id, string categoryId);
+    Task<bool> CreateAccount(CosmosUser user);
     Task DeleteProductAsync(string productID, string categoryID);
     Task EditProductAsync(Product product, String NewCategoryId);
     public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()

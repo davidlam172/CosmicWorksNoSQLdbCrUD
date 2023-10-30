@@ -1,8 +1,7 @@
+using Azure;
 using CosmicWorksTest2.Models;
 using Microsoft.Azure.Cosmos;
 using Microsoft.Azure.Cosmos.Linq;
-using System.Reflection.Metadata;
-using BCrypt.Net;
 
 namespace CosmicWorksTest2.Services;
 
@@ -181,7 +180,6 @@ FROM products p
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.password, salt);
         SaveUserDataToCosmos(user.username, hashedPassword, salt);
         return true;
-
     }
     private void SaveUserDataToCosmos(string username, string hashedPassword, string salt)
     {
@@ -194,6 +192,30 @@ FROM products p
         }).Result;
     }
 
+    public async Task<CosmosUser> GetUserByUsername(string username)
+    {
+        try
+        {
+            string sqlQuery = "SELECT * FROM c WHERE c.username = @username";
+
+            QueryDefinition queryDefinition = new QueryDefinition(sqlQuery);
+            queryDefinition.WithParameter("@username", username);
+            FeedIterator<CosmosUser> queryResultSetIterator = usercontainer.GetItemQueryIterator<CosmosUser>(queryDefinition);
+            FeedResponse<CosmosUser> response = await queryResultSetIterator.ReadNextAsync();
+            //CosmosUser user = response.First();
+            return response.First();
+            //return response.First().password;
+        }
+        catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
+        {
+            return null;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"Error checking product existence: {ex.Message}");
+            throw;
+        }
+    }
     public async Task<bool> CheckProductExistsAsync(string productId, string categoryId)
     {
         try

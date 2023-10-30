@@ -1,7 +1,11 @@
-using CosmicWorksTest2.Models;
-using CosmicWorksTest2.Services;
+using System;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.Extensions.Configuration;
+using CosmicWorksTest2.Models;
+using Microsoft.Azure.Cosmos;
+using CosmicWorksTest2.Services;
 
 namespace CosmicWorksTest2.Pages
 {
@@ -9,34 +13,41 @@ namespace CosmicWorksTest2.Pages
     {
         private readonly ICosmosService _cosmosService;
 
+        //[BindProperty]
+        //public CosmosUser CosmosUser { get; set; }
+
         public LoginModel(ICosmosService cosmosService)
         {
             _cosmosService = cosmosService;
         }
+        [BindProperty]
+        public string username { get; set; }
+        [BindProperty]
+        public string password { get; set; }
 
-        public void OnPost()
+        public IActionResult OnGet()
         {
-            //// Check user credentials and log in
-            //// Implement logic to authenticate the user
-            //if (IsValidUser(UserName, Password))
-            //{
-            //    // Successful login
-            //    // Implement user authentication and session management
-            //}
-            //else
-            //{
-            //    // Failed login
-            //    // Display error message or redirect to login page with an error
-            //}
+            return Page();
         }
 
-        private bool IsValidUser(string userName, string password)
+        public async Task<IActionResult> OnPostAsync()
         {
-            // Check if the user exists and the password is correct
-            // Implement authentication logic
-            // You might want to check against your user database
-            // or use Identity for user management.
-            return true; // Replace with actual authentication logic
+            CosmosUser user = _cosmosService.GetUserByUsername(username).Result;
+
+            // Verify the password. 
+            if (user != null && BCrypt.Net.BCrypt.Verify(password, user.password))
+            {
+                // Authentication succeeded. You can set a session or cookie to remember the user's authentication.
+                // Typically, you would implement user sessions or identity-based authentication here.
+
+                return RedirectToPage("/Index"); // Redirect to the protected page (e.g., the homepage).
+            }
+            else
+            {
+                // Authentication failed.
+                ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                return Page();
+            }
         }
     }
 }

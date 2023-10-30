@@ -9,6 +9,8 @@ public interface ICosmosService
     Task<bool> CreateAccount(CosmosUser user);
     Task DeleteProductAsync(string productID, string categoryID);
     Task EditProductAsync(Product product, String NewCategoryId);
+    Task<CosmosUser> GetUserByUsername(string username);
+
     public async Task<IEnumerable<Product>> RetrieveActiveProductsAsync()
     {
         await Task.Delay(1);

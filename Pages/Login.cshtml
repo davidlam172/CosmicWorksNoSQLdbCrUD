@@ -3,7 +3,18 @@
 @{
 }
 <form method="post">
-    <input type="text" name="userName" placeholder="Username" />
-    <input type="password" name="password" placeholder="Password" />
-    <input type="submit" value="Login" />
+    <table>
+        <tr>
+            <td class="tdSpace"><label for="username">Username:</label></td>
+            <td class="tdSpace"><input type="text" id="username" asp-for="username" required /></td>
+        </tr>
+        <tr>
+            <td class="tdSpace"><label for="password">Password:</label></td>
+            <td class="tdSpace"><input type="password" id="password" asp-for="password" required /></td>
+        </tr>
+    </table>
+    <br />
+    <div>
+        <button type="submit" class="add-button">Log In</button>
+    </div>
 </form>

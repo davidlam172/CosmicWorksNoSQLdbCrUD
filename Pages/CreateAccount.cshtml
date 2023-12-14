@@ -15,6 +15,12 @@
         </tr>
     </table>
     <br />
+    @if (!Model.CreatedSuccess)
+    {
+        <div class="alert alert-danger" role="alert">
+            Username taken
+        </div>
+    }
     <div>
         <button type="submit" class="add-button">Create Account</button>
     </div>

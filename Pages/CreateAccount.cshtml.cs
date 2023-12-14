@@ -12,12 +12,15 @@ namespace CosmicWorksTest2.Pages
         public CreateAccountModel(ICosmosService cosmosService)
         {
             _cosmosService = cosmosService;
+            CreatedSuccess = true;
         }
         [BindProperty]
         public CosmosUser CosmosUser { get; set; }
+
         public void OnGet()
         {
         }
+        public bool CreatedSuccess { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
             bool success = await _cosmosService.CreateAccount(CosmosUser);
@@ -25,7 +28,11 @@ namespace CosmicWorksTest2.Pages
             {
                 return RedirectToPage("/Login");
             }
-            else return RedirectToPage("/CreateAccount");
+            else
+            {
+                CreatedSuccess = false;
+                return Page();
+            }
         }
     }
 }

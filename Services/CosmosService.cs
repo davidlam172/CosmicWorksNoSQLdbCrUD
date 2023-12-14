@@ -176,6 +176,7 @@ FROM products p
 
     public async Task<bool> CreateAccount(CosmosUser user)
     {
+        if (await GetUserByUsername(user.username) != null) { return false; }
         string salt = BCrypt.Net.BCrypt.GenerateSalt();
         string hashedPassword = BCrypt.Net.BCrypt.HashPassword(user.password, salt);
         SaveUserDataToCosmos(user.username, hashedPassword, salt);

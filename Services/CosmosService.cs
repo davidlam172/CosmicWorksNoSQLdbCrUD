@@ -136,7 +136,7 @@ FROM products p
                     sku: updatedProduct.sku ?? existingProduct.sku,
                     name: updatedProduct.name ?? existingProduct.name,
                     description: updatedProduct.description ?? existingProduct.description,
-                    price: updatedProduct.price != -1 ? updatedProduct.price : existingProduct.price
+                    price: updatedProduct.price != -1 ? (updatedProduct.price != 0 ? updatedProduct.price : existingProduct.price) : existingProduct.price
                 );
 
 

@@ -33,6 +33,8 @@ namespace CosmicWorksTest2.Pages
             return Page();
         }
         public bool LoggedInSuccessful { get; set; }
+        public bool CreatedAccountSuccessful{ get; set; }
+        // Make a success msg on redirect from Create Account
         public async Task<IActionResult> OnPostAsync()
         {
             CosmosUser user = _cosmosService.GetUserByUsername(username).Result;

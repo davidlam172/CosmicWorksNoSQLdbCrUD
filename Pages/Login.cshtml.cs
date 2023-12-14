@@ -20,6 +20,7 @@ namespace CosmicWorksTest2.Pages
         public LoginModel(ICosmosService cosmosService)
         {
             _cosmosService = cosmosService;
+            LoggedInSuccessful = true;
             //_tokenService = tokenService;
         }
         [BindProperty]
@@ -31,7 +32,7 @@ namespace CosmicWorksTest2.Pages
         {
             return Page();
         }
-
+        public bool LoggedInSuccessful { get; set; }
         public async Task<IActionResult> OnPostAsync()
         {
             CosmosUser user = _cosmosService.GetUserByUsername(username).Result;
@@ -55,6 +56,7 @@ namespace CosmicWorksTest2.Pages
             }
             else
             {
+                LoggedInSuccessful = false;
                 // Authentication failed.
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
                 //return Unauthorized();

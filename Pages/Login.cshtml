@@ -17,6 +17,12 @@
         </tr>
     </table>
     <br />
+    @if (!Model.LoggedInSuccessful)
+    {
+        <div class="alert alert-danger" role="alert">
+            Username or Password incorrect.
+        </div>
+    }
     <div>
         <button type="submit" class="add-button">Log In</button>
     </div>

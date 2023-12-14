@@ -1,23 +1,21 @@
-using CosmicWorksTest2.Services;
+using System;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Hosting;
 
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddRazorPages();
-
-builder.Services.Configure<RouteOptions>(o =>
+namespace CosmicWorksTest2
 {
-    o.LowercaseUrls = true;
-    o.LowercaseQueryStrings = true;
-});
+    public class Program
+    {
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
 
-builder.Services.AddSingleton<ICosmosService, CosmosService>();
-
-var app = builder.Build();
-
-app.UseRouting();
-
-app.MapRazorPages();
-
-app.UseStaticFiles();
-
-app.Run();
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.UseStartup<Startup>();
+                });
+    }
+}

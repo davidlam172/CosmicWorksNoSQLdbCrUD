@@ -202,9 +202,7 @@ FROM products p
             queryDefinition.WithParameter("@username", username);
             FeedIterator<CosmosUser> queryResultSetIterator = usercontainer.GetItemQueryIterator<CosmosUser>(queryDefinition);
             FeedResponse<CosmosUser> response = await queryResultSetIterator.ReadNextAsync();
-            //CosmosUser user = response.First();
             return response.First();
-            //return response.First().password;
         }
         catch (CosmosException ex) when (ex.StatusCode == System.Net.HttpStatusCode.NotFound)
         {
@@ -213,7 +211,8 @@ FROM products p
         catch (Exception ex)
         {
             Console.WriteLine($"Error checking product existence: {ex.Message}");
-            throw;
+            //throw;
+            return null;
         }
     }
     public async Task<bool> CheckProductExistsAsync(string productId, string categoryId)

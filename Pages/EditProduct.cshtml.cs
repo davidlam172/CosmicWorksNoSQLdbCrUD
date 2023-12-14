@@ -2,9 +2,10 @@ using System.ComponentModel.DataAnnotations;
 using System.Threading.Tasks;
 using CosmicWorksTest2.Models;
 using CosmicWorksTest2.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-
+[Authorize]
 public class EditProductModel : PageModel
 {
     private readonly ICosmosService _cosmosService;

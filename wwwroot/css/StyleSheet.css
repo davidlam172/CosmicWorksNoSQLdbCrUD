@@ -58,6 +58,20 @@
         background-color: #505050;
     }
 
+.logout-button {
+    background-color: #cf4336;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+    .logout-button:hover {
+        background-color: #505050;
+    }
+
 .edit-button {
     background-color: #0072ff;
     color: white;

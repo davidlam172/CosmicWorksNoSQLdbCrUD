@@ -6,19 +6,21 @@ using Microsoft.Extensions.Configuration;
 using CosmicWorksTest2.Models;
 using Microsoft.Azure.Cosmos;
 using CosmicWorksTest2.Services;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace CosmicWorksTest2.Pages
 {
     public class LoginModel : PageModel
     {
         private readonly ICosmosService _cosmosService;
-
-        //[BindProperty]
-        //public CosmosUser CosmosUser { get; set; }
+        //private readonly TokenService _tokenService;
 
         public LoginModel(ICosmosService cosmosService)
         {
             _cosmosService = cosmosService;
+            //_tokenService = tokenService;
         }
         [BindProperty]
         public string username { get; set; }
@@ -34,18 +36,28 @@ namespace CosmicWorksTest2.Pages
         {
             CosmosUser user = _cosmosService.GetUserByUsername(username).Result;
 
-            // Verify the password. 
             if (user != null && BCrypt.Net.BCrypt.Verify(password, user.password))
             {
-                // Authentication succeeded. You can set a session or cookie to remember the user's authentication.
-                // Typically, you would implement user sessions or identity-based authentication here.
+                var claims = new List<Claim>
+                {
+                    new Claim(ClaimTypes.Name, username)
+                };
 
-                return RedirectToPage("/Index"); // Redirect to the protected page (e.g., the homepage).
+                var claimsIdentity = new ClaimsIdentity(
+                    claims, CookieAuthenticationDefaults.AuthenticationScheme);
+
+                await HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.AuthenticationScheme,
+                    new ClaimsPrincipal(claimsIdentity));
+                //var token = _tokenService.GenerateJwtToken(username);
+                //Response.Headers.Add("Authorization", $"Bearer {token}");
+                return RedirectToPage("/index");
             }
             else
             {
                 // Authentication failed.
                 ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                //return Unauthorized();
                 return Page();
             }
         }
